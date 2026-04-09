@@ -1,0 +1,35 @@
+- id: TASK-001
+  title: Add health command smoke test
+  status: todo
+  depends_on: []
+  goal: Confirm the loop environment is healthy and the command runner works end to end.
+  acceptance_criteria:
+    - Running the health command prints healthy
+    - The command exits with status code 0
+  validation_commands:
+    - python roadmap_loop_agent_sdk.py health
+  documentation_targets:
+    - docs/changelog.md
+    - docs/work-log/TASK-001.md
+  notes: ""
+  files_expected:
+    - roadmap_loop_agent_sdk.py
+    - tasks.yaml
+
+- id: TASK-002
+  title: Add Ruff linting
+  status: todo
+  depends_on:
+    - TASK-001
+  goal: Add Python linting so the loop has a real validation gate.
+  acceptance_criteria:
+    - Ruff is installed or added to the repo
+    - Running ruff check . succeeds
+  validation_commands:
+    - ruff check .
+  documentation_targets:
+    - docs/changelog.md
+    - docs/work-log/TASK-002.md
+  notes: ""
+  files_expected:
+    - pyproject.toml
